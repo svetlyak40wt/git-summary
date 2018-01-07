@@ -2,7 +2,19 @@
 Checks what repos has been changed in your workspace.
 
 # Install
+
+## Linux
+
+Use version from [master branch](https://github.com/svetlyak40wt/git-summary/tree/master)
+
 * `sudo apt install gawk` (find the alternative command if you're not using ubuntu)
+* `sudo cp git-summary /usr/local/bin`
+
+## OSX
+
+Use version from [osx branch](https://github.com/svetlyak40wt/git-summary/tree/osx)
+
+* `brew install coreutils gawk`
 * `sudo cp git-summary /usr/local/bin`
 
 # Usage

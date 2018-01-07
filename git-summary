@@ -6,6 +6,13 @@
 #
 # Andy Gimblett, March 2017
 
+# Original version: https://github.com/lordadamson/git-summary
+# Modified to work with OSX.
+#
+# brew install coreutils gawk
+# urilities "dirname" and "readlink" were replaced with "gdirname" and "greadlink"
+
+
 
 usage() {
     sed 's/^        //' <<EOF
@@ -58,7 +65,7 @@ git_summary() {
     shift $((OPTIND-1))
 
     # Use provided path, or default to pwd
-    local target=$(readlink -f ${1:-`pwd`})
+    local target=$(greadlink -f ${1:-`pwd`})
     local repos=$(list_repos $target)
     
     if [[ -z $repos ]]; then
@@ -160,7 +167,7 @@ list_repos () {
 	
 	for i in ${git_directories[*]}; do
 		if [[ ! -z $i ]]; then
-    		dirname -z $i | xargs -0 -L1 basename
+    		gdirname -z $i | xargs -0 -L1 basename
     	fi
     done
 }
